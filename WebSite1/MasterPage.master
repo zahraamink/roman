@@ -1,0 +1,202 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script src="image/jquery-1.3.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    (function () {
+        function checkTime(i) {
+            return (i < 10) ? "0" + i : i;
+        }
+
+        function startTime() {
+            var today = new Date(),
+            h = checkTime(today.getHours()),
+            m = checkTime(today.getMinutes()),
+            s = checkTime(today.getSeconds());
+              $("#clock1").html(  h + ":" + m + ":" + s);
+            t = setTimeout(function () {
+                startTime()
+            }, 500);
+        }
+        startTime();
+    })();
+   var thisDate = new Date();
+
+
+ 
+  
+
+
+ 
+</script>
+    <style type="text/css">
+   .button {
+ text-decoration:none;
+ color:Fuchsia;
+ font-size:12px;
+}
+    .button:hover {
+ text-decoration:none;
+ color:Orange;
+ font-size:12px;
+}
+
+
+
+        body
+        {
+           background: url('image/back.jpg') no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+filter:
+progid:DXImageTransform.Microsoft.AlphaImageLoader(src='image/back.jpg'', sizingMethod='scale');
+-ms-filter:
+"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='image/back.jpg'', sizingMethod='scale')";
+        }
+    .style1
+    {
+        text-align:right;
+    }
+        .style2
+        {
+            height: 220px;
+            width: 420px;
+        }
+        .style3
+        {
+            height: 220px;
+            width: 168px;
+        }
+        .style90
+        {
+            width: 814px;
+            height: 164px;
+        }
+        .style91
+        {
+            font-size: small;
+        }
+    </style>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body onload="startTime();">
+
+    <form id="form1" runat="server">
+    <div align="center">
+    <div align="center" dir="rtl" style="position: relative; top: -10px">
+        <asp:Menu ID="Menu1" runat="server" BackColor="#FF0066" 
+            DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="12pt" 
+            ForeColor="White" Orientation="Horizontal" StaticSubMenuIndent="10px" 
+            Width="100%">
+            <DynamicHoverStyle BackColor="#666666" ForeColor="White" />
+            <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+            <DynamicMenuStyle BackColor="#E3EAEB" />
+            <DynamicSelectedStyle BackColor="#1C5E55" />
+            <Items>
+                <asp:MenuItem Text="صفحه اصلی" Value="صفحه اصلی" NavigateUrl="~/Default.aspx"></asp:MenuItem>
+                <asp:MenuItem Text="ثبت نام" Value="ثبت نام" NavigateUrl="~/regester.aspx"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/login.aspx" Text="ورود" Value="ورود">
+                </asp:MenuItem>
+                <asp:MenuItem Text="درباره ما" Value="درباره ما" NavigateUrl="~/about.aspx"></asp:MenuItem>
+                <asp:MenuItem Text="لینک ها" Value="لینک ها"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/login_admin.aspx" Text="ورود مدیر" 
+                    Value="ورود مدیر"></asp:MenuItem>
+            </Items>
+            <StaticHoverStyle BackColor="#990033" ForeColor="White" />
+            <StaticMenuItemStyle CssClass="style1" HorizontalPadding="10px" 
+                VerticalPadding="2px" Height="50px" />
+            <StaticSelectedStyle BackColor="#1C5E55" />
+        </asp:Menu>
+        </div>
+        <div>
+            <img src="image/images.jpg" width="70%" /></div>
+        <table width="600">
+        <tr>
+        <td class="style2" valign="top" bgcolor="White"><asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder></td>
+        <td class="style3" valign="top">
+        <div align="center" 
+                
+                style="color: #FFFFFF; font-size: medium; background-color: #FF0066; height: 42px;">ورود به 
+            سایت</div>
+        <div align="center" style="height: 116px; background-color: #FFEAF2">
+            <br />
+            <asp:TextBox ID="TextBox1" runat="server" placeholder="نام کاربری" dir=rtl 
+                CssClass="style91" Width="140px"></asp:TextBox>
+            <br />
+            <asp:TextBox ID="TextBox2" runat="server" placeholder="رمز عبور" dir=rtl 
+                TextMode="Password" CssClass="style91" 
+                ontextchanged="TextBox2_TextChanged" Width="140px"></asp:TextBox>
+            <br />
+            <asp:Button ID="Button1" runat="server" Text="ورود" Width="151px" 
+                onclick="Button1_Click" />
+            <asp:Label ID="Label2" runat="server" style="font-size: xx-small"></asp:Label>
+            <br />
+            </div>
+            <br />
+                 <div align="center" 
+                
+                style="color: #FFFFFF; font-size: medium; background-color: #FF0066; height: 42px;">تازه ترین ها</div>
+       
+        <div  align="center" style="height: 206px; background-color: #FFEAF2">
+            <a class="button" href="#">رمان شاه و شطرنج</a>
+            <br />
+             <a class="button" href="#">رمان شاه و شطرنج</a><br />
+               <a class="button" href="#">رمان شاه و شطرنج</a><br />
+                 <a class="button" href="#">رمان شاه و شطرنج</a><br />
+                   <a class="button" href="#">رمان شاه و شطرنج</a><br />
+                     <a class="button" href="#">رمان شاه و شطرنج</a><br />
+                       <a class="button" href="#">رمان شاه و شطرنج</a><br />
+                        <a class="button" href="#">رمان شاه و شطرنج</a><br />
+                         <a class="button" href="#">رمان شاه و شطرنج</a><br />
+                          <a class="button" href="#">رمان شاه و شطرنج</a><br />
+                  
+            <br />
+            <br />
+            </div>
+              <br />
+                 <div align="center" 
+                
+                style="color: #FFFFFF; font-size: medium; background-color: #FF0066; height: 46px;">تاریخ امروز</div>
+        <div align="center" 
+                style="height: 100px; background-color: #FFEAF2; font-size: small;" dir="ltr">
+            <br />
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            <img alt="" src="image/calendar.png" width="20" /><br />
+            
+            <a id="clock1" >00:00:00</a>
+            <img alt="" src="image/calendar.png" width="20" /></div>
+            <br />
+
+             <div align="center" 
+                
+                style="color: #FFFFFF; font-size: medium; background-color: #FF0066; height: 46px;">
+                 تبلیغات</div>
+        <div align="center" 
+                style="height: 201px; background-color: #FFEAF2; font-size: small;" 
+                dir="ltr">
+            <img alt="" src="image/Name-240-120.gif" style="width: 100px" /><br />
+            <br />
+            
+            </div>
+
+
+        </td>
+        </tr>
+        </table>
+        
+    </div>
+    <div align="center" 
+        style="color: #000000; background-color: #9999FF; height: 46px;">تمام حقوق برای سایت محفوظ میباشد</div>
+    </form>
+</body>
+</html>
